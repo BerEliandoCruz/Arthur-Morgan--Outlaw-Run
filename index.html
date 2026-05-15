@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arthur Morgan: Frontier Run</title>
+    <meta name="description"
+        content="A 2D side-scrolling platformer set in the Wild West. Play as Arthur Morgan in this RDR2-inspired pixel art adventure!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rye&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a14;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            font-family: 'Press Start 2P', monospace;
+        }
+
+        #game-container {
+            position: relative;
+            border: 3px solid #3B2A1A;
+            border-radius: 4px;
+            box-shadow: 0 0 40px rgba(59, 42, 26, 0.5), 0 0 80px rgba(201, 168, 76, 0.15);
+        }
+
+        canvas {
+            display: block;
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+        }
+
+        #loading-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #1a1a2e;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            color: #C9A84C;
+            font-family: 'Rye', serif;
+        }
+
+        #loading-screen h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        #loading-screen .bar-container {
+            width: 300px;
+            height: 20px;
+            background: #2E2416;
+            border: 2px solid #5C3D1E;
+            border-radius: 4px;
+        }
+
+        #loading-screen .bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #C9A84C, #e8c84c);
+            border-radius: 2px;
+            transition: width 0.3s;
+        }
+
+        #loading-screen p {
+            margin-top: 12px;
+            font-size: 12px;
+            font-family: 'Press Start 2P', monospace;
+            color: #8B5E2E;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="game-container">
+        <div id="loading-screen">
+            <h1>Arthur Morgan: Frontier Run</h1>
+            <div class="bar-container">
+                <div class="bar-fill" id="load-bar"></div>
+            </div>
+            <p>Loading the frontier...</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.min.js"></script>
+    <script src="src/config.js"></script>
+    <script src="src/audio.js"></script>
+    <script src="src/sprites.js"></script>
+    <script src="src/entities/Player.js"></script>
+    <script src="src/entities/Horse.js"></script>
+    <script src="src/entities/Bullet.js"></script>
+    <script src="src/entities/enemies.js"></script>
+    <script src="src/systems/WeaponSystem.js"></script>
+    <script src="src/systems/LevelGenerator.js"></script>
+    <script src="src/scenes/BootScene.js"></script>
+    <script src="src/scenes/MenuScene.js"></script>
+    <script src="src/scenes/GameScene.js"></script>
+    <script src="src/scenes/HUDScene.js"></script>
+    <script src="src/scenes/GameOverScene.js"></script>
+    <script src="src/scenes/VictoryScene.js"></script>
+    <script src="src/main.js"></script>
+</body>
+
+</html>
